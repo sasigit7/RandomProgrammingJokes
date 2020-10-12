@@ -15,6 +15,11 @@ const getJoke = async() => {
     const jokePromise = await fetch('https://official-joke-api.appspot.com/jokes/programming/random');
     const joke = await jokePromise.json();
 
-    console.log(joke);
+    //console.log(joke);
+
+   // Get the setup from the joke and insert it into the setupDiv element
+    setupDiv.innerHTML = joke[0].setup;
+
 }
 getJoke();
+
