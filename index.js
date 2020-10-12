@@ -7,6 +7,23 @@ const punchlineBtn = document.getElementById('punchlineBtn');
 const newJokeBtn = document.getElementById('newJokeBtn');
 let punchline;
 
+// Add an event listener for the punchline button. When clicked it should call a
+// function called getPunchline
+/* Create the getPunchline function. This function should:
+    Insert the punchline into the punchlineDiv
+    Add the class "bubble" to the punchlineDiv
+    Toggle the "hidden" class on both buttons.
+*/
+
+punchlineBtn.addEventListener('click', getPunchline);
+
+function getPunchline() {
+    punchlineDiv.innerHTML = punchline;
+    punchlineDiv.classList.add('bubble');
+    punchlineBtn.classList.toggle('hidden');
+    newJokeBtn.classList.toggle('hidden');
+}
+
 // Setup an async function called getJoke Create a variable called jokePromise
 // that fetches a joke from
 // https://official-joke-api.appspot.com/jokes/programming/random create a
@@ -25,8 +42,9 @@ const getJoke = async() => {
     // Assign the current jokes punchline to the punchline variable.
     punchline = joke[0].punchline;
 
+    punchlineBtn.classList.toggle('hidden');
+    newJokeBtn.classList.toggle('hidden');
+
 }
 getJoke();
-
-
 
